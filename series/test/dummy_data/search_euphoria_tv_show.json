@@ -1,0 +1,45 @@
+{
+  "page": 1,
+  "results": [
+    {
+      "backdrop_path": "/oKt4J3TFjWirVwBqoHyIvv5IImd.jpg",
+      "first_air_date": "2019-06-16",
+      "genre_ids": [
+        18
+      ],
+      "id": 85552,
+      "name": "Euphoria",
+      "origin_country": [
+        "US"
+      ],
+      "original_language": "en",
+      "original_name": "Euphoria",
+      "overview": "A group of high school students navigate love and friendships in a world of drugs, sex, trauma, and social media.",
+      "popularity": 4695.201,
+      "poster_path": "/jtnfNzqZwN4E32FGGxx1YZaBWWf.jpg",
+      "vote_average": 8.4,
+      "vote_count": 7136
+    },
+    {
+      "backdrop_path": "/uyonOXSxxjNfHZ0E3OnpiwD7qJO.jpg",
+      "first_air_date": "2012-11-30",
+      "genre_ids": [
+        18
+      ],
+      "id": 90417,
+      "name": "Euphoria",
+      "origin_country": [
+        "IL"
+      ],
+      "original_language": "he",
+      "original_name": "originalName",
+      "overview": "Euphoria portrays a sexy, troubling, and bold profile of the teens of the nineties, within a raging drama going on behind teenagers closed doors.",
+      "popularity": 72.199,
+      "poster_path": "/3Vp5DaPByaN0kZ3ioBvRSr3rI4s.jpg",
+      "vote_average": 0,
+      "vote_count": 0
+    }
+  ],
+  "total_pages": 1,
+  "total_results": 2
+}
