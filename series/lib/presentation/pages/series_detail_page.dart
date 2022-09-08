@@ -160,9 +160,12 @@ class DetailContent extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(4.0),
                                 color: kMikadoYellow,
                               ),
-                              padding: EdgeInsets.all(2),
+                              padding: EdgeInsets.symmetric(
+                                vertical: 2,
+                                horizontal: 8,
+                              ),
                               child: Text(
-                                series.numberOfEpisodes.toString(),
+                                'Total Episodes : ${series.numberOfEpisodes}',
                                 style: kSubtitle.copyWith(color: kRichBlack),
                               ),
                             ),
