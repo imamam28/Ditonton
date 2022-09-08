@@ -1,5 +1,5 @@
 # ditonton_flutter
-[![Codemagic build status](https://api.codemagic.io/apps/63109f4c2923d8438f5e4069/default-workflow/status_badge.svg)](https://codemagic.io/apps/63109f4c2923d8438f5e4068/default-workflow/latest_build)
+[![Codemagic build status](https://api.codemagic.io/apps/63109f4c2923d8438f5e4069/63109f4c2923d8438f5e4068/status_badge.svg)](https://codemagic.io/apps/63109f4c2923d8438f5e4069/63109f4c2923d8438f5e4068/latest_build)
 
 A new Flutter project.
 
