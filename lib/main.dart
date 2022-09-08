@@ -8,8 +8,9 @@ import 'package:series/series.dart' as series;
 import 'injection.dart' as di;
 import 'presentation/pages/home/home_page.dart';
 
-void main() {
-  di.init();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   runApp(MyApp());
 }
 

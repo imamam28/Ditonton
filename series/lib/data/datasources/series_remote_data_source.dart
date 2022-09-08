@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:core/core.dart';
-import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
 
 abstract class SeriesRemoteDataSource {
   Future<List<SeriesModel>> getOnAirSeries();
@@ -13,7 +13,7 @@ abstract class SeriesRemoteDataSource {
 }
 
 class SeriesRemoteDataSourceImpl implements SeriesRemoteDataSource {
-  final http.Client client;
+  final IOClient client;
 
   SeriesRemoteDataSourceImpl({required this.client});
 

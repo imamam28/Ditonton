@@ -1,12 +1,12 @@
 import 'package:core/core.dart';
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
+import 'package:http/io_client.dart';
 import 'package:movie/movie.dart' as movie;
 import 'package:series/series.dart' as series;
 
 final locator = GetIt.instance;
 
-void init() {
+Future<void> init() async {
   // cubit movie
   locator.registerFactory(() => movie.MovieDetailCubit(locator(), locator()));
   locator.registerFactory(
@@ -79,5 +79,6 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  IOClient ioClient = await NetworkUtils.ioClient;
+  locator.registerLazySingleton(() => ioClient);
 }
