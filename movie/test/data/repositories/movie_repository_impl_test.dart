@@ -102,6 +102,18 @@ void main() {
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
     });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.getNowPlayingMovies())
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.getNowPlayingMovies();
+      // assert
+      verify(mockRemoteDataSource.getNowPlayingMovies());
+      expect(result, equals(Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'))));
+    });
   });
 
   group('Popular Movies', () {
@@ -142,6 +154,18 @@ void main() {
       expect(
           result, Left(ConnectionFailure('Failed to connect to the network')));
     });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.getPopularMovies())
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.getPopularMovies();
+      // assert
+      verify(mockRemoteDataSource.getPopularMovies());
+      expect(result, equals(Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'))));
+    });
   });
 
   group('Top Rated Movies', () {
@@ -180,6 +204,18 @@ void main() {
       // assert
       expect(
           result, Left(ConnectionFailure('Failed to connect to the network')));
+    });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.getTopRatedMovies())
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.getTopRatedMovies();
+      // assert
+      verify(mockRemoteDataSource.getTopRatedMovies());
+      expect(result, equals(Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'))));
     });
   });
 
@@ -248,6 +284,18 @@ void main() {
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
     });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.getMovieDetail(tId))
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.getMovieDetail(tId);
+      // assert
+      verify(mockRemoteDataSource.getMovieDetail(tId));
+      expect(result, equals(Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'))));
+    });
   });
 
   group('Get Movie Recommendations', () {
@@ -294,6 +342,18 @@ void main() {
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
     });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.getMovieRecommendations(tId))
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.getMovieRecommendations(tId);
+      // assertbuild runner
+      verify(mockRemoteDataSource.getMovieRecommendations(tId));
+      expect(result, equals(Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'))));
+    });
   });
 
   group('Seach Movies', () {
@@ -335,6 +395,17 @@ void main() {
       expect(
           result, Left(ConnectionFailure('Failed to connect to the network')));
     });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.searchMovies(tQuery))
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.searchMovies(tQuery);
+      // assert
+      expect(result, Left(SSLFailure('CERTIFICATE_VERIFY_FAILED')));
+    });
   });
 
   group('save watchlist', () {
@@ -348,7 +419,9 @@ void main() {
       expect(result, Right('Added to Watchlist'));
     });
 
-    test('should return DatabaseFailure when saving unsuccessful', () async {
+    test(
+        'should return DatabaseFailure when saving unsuccessful (DatabaseException)',
+        () async {
       // arrange
       when(mockLocalDataSource.insertWatchlist(testWatchlistMovieLocal))
           .thenThrow(DatabaseException('Failed to add watchlist'));
@@ -370,7 +443,9 @@ void main() {
       expect(result, Right('Removed from watchlist'));
     });
 
-    test('should return DatabaseFailure when remove unsuccessful', () async {
+    test(
+        'should return DatabaseFailure when remove unsuccessful (DatabaseException)',
+        () async {
       // arrange
       when(mockLocalDataSource.removeWatchlist(testWatchlistMovieLocal))
           .thenThrow(DatabaseException('Failed to remove watchlist'));

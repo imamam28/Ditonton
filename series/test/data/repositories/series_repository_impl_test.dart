@@ -102,6 +102,18 @@ void main() {
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
     });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.getOnAirSeries())
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.getOnAirSeries();
+      verify(mockRemoteDataSource.getOnAirSeries());
+      // assert
+      expect(result, Left(SSLFailure('CERTIFICATE_VERIFY_FAILED')));
+    });
   });
 
   group('Popular Series', () {
@@ -142,6 +154,18 @@ void main() {
       expect(
           result, Left(ConnectionFailure('Failed to connect to the network')));
     });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.getPopularSeries())
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.getPopularSeries();
+      verify(mockRemoteDataSource.getPopularSeries());
+      // assert
+      expect(result, Left(SSLFailure('CERTIFICATE_VERIFY_FAILED')));
+    });
   });
 
   group('Top Rated Series', () {
@@ -180,6 +204,18 @@ void main() {
       // assert
       expect(
           result, Left(ConnectionFailure('Failed to connect to the network')));
+    });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.getTopRatedSeries())
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.getTopRatedSeries();
+      verify(mockRemoteDataSource.getTopRatedSeries());
+      // assert
+      expect(result, Left(SSLFailure('CERTIFICATE_VERIFY_FAILED')));
     });
   });
 
@@ -269,6 +305,18 @@ void main() {
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
     });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.getSeriesDetail(tId))
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.getSeriesDetail(tId);
+      verify(mockRemoteDataSource.getSeriesDetail(tId));
+      // assert
+      expect(result, Left(SSLFailure('CERTIFICATE_VERIFY_FAILED')));
+    });
   });
 
   group('Get Series Recommendations', () {
@@ -315,6 +363,18 @@ void main() {
       expect(result,
           equals(Left(ConnectionFailure('Failed to connect to the network'))));
     });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.getSeriesRecommendations(tId))
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.getSeriesRecommendations(tId);
+      verify(mockRemoteDataSource.getSeriesRecommendations(tId));
+      // assert
+      expect(result, Left(SSLFailure('CERTIFICATE_VERIFY_FAILED')));
+    });
   });
 
   group('Seach Series', () {
@@ -355,6 +415,17 @@ void main() {
       // assert
       expect(
           result, Left(ConnectionFailure('Failed to connect to the network')));
+    });
+
+    test('should return ssl failure to fetch api because certificate',
+        () async {
+      // arrange
+      when(mockRemoteDataSource.searchSeries(tQuery))
+          .thenThrow(TlsException('CERTIFICATE_VERIFY_FAILED'));
+      // act
+      final result = await repository.searchSeries(tQuery);
+      // assert
+      expect(result, Left(SSLFailure('CERTIFICATE_VERIFY_FAILED')));
     });
   });
 

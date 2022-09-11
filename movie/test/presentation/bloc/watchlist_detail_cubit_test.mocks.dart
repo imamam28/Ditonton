@@ -2,6 +2,7 @@
 // in movie/test/presentation/bloc/watchlist_detail_cubit_test.dart.
 // Do not manually edit this file.
 
+// ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'dart:async' as _i5;
 
 import 'package:core/core.dart' as _i7;
