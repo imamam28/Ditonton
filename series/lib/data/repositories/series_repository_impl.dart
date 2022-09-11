@@ -24,6 +24,10 @@ class SeriesRepositoryImpl implements SeriesRepository {
       return Left(ServerFailure(e.message));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
+    } catch (e) {
+      return Left(Failure(e.toString()));
     }
   }
 
@@ -36,6 +40,10 @@ class SeriesRepositoryImpl implements SeriesRepository {
       return Left(ServerFailure(e.message));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
+    } catch (e) {
+      return Left(Failure(e.toString()));
     }
   }
 
@@ -48,6 +56,10 @@ class SeriesRepositoryImpl implements SeriesRepository {
       return const Left(ServerFailure(''));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
+    } catch (e) {
+      return Left(Failure(e.toString()));
     }
   }
 
@@ -60,6 +72,10 @@ class SeriesRepositoryImpl implements SeriesRepository {
       return Left(ServerFailure(e.message));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
+    } catch (e) {
+      return Left(Failure(e.toString()));
     }
   }
 
@@ -72,6 +88,10 @@ class SeriesRepositoryImpl implements SeriesRepository {
       return Left(ServerFailure(e.message));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
+    } catch (e) {
+      return Left(Failure(e.toString()));
     }
   }
 
@@ -84,6 +104,10 @@ class SeriesRepositoryImpl implements SeriesRepository {
       return Left(ServerFailure(e.message));
     } on SocketException {
       return const Left(ConnectionFailure('Failed to connect to the network'));
+    } on TlsException {
+      return Left(SSLFailure('CERTIFICATE_VERIFY_FAILED'));
+    } catch (e) {
+      return Left(Failure(e.toString()));
     }
   }
 
@@ -108,6 +132,8 @@ class SeriesRepositoryImpl implements SeriesRepository {
       return Right(result);
     } on DatabaseException catch (e) {
       return Left(DatabaseFailure(e.message));
+    } catch (e) {
+      return Left(DatabaseFailure(e.toString()));
     }
   }
 

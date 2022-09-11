@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
 
-abstract class Failure extends Equatable {
+class Failure extends Equatable {
   final String message;
 
   const Failure(this.message);
@@ -11,16 +11,20 @@ abstract class Failure extends Equatable {
   List<Object> get props => [message];
 }
 
-class ServerFailure extends Failure {
-  const ServerFailure(String message) : super(message);
-}
-
 class ConnectionFailure extends Failure {
   const ConnectionFailure(String message) : super(message);
 }
 
 class DatabaseFailure extends Failure {
   const DatabaseFailure(String message) : super(message);
+}
+
+class ServerFailure extends Failure {
+  const ServerFailure(String message) : super(message);
+}
+
+class SSLFailure extends Failure {
+  const SSLFailure(String message) : super(message);
 }
 
 String errorMessage(String responseBody) {
