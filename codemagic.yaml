@@ -6,6 +6,7 @@ workflows:
     scripts:
       - flutter packages pub get
       - flutter test --coverage
+      - flutter test movie series
     artifacts:
       - coverage/lcov.info
 
