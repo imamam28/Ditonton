@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:core/core.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +19,26 @@ Future<void> main() async {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  @override
+  void initState() {
+    Future.microtask(_openApp);
+    super.initState();
+  }
+
+  Future<void> _openApp() async {
+    try {
+      await FirebaseAnalytics.instance.logEvent(name: "open_app");
+    } catch (e) {
+      log(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(

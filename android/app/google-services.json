@@ -29,6 +29,13 @@
             {
               "client_id": "917385601184-d5f7gshfgtf9lo1447v57glp8lckktnd.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "917385601184-5h7pkgap7etssj67qp47oju2jrdhj9aj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ditontonFlutter"
+              }
             }
           ]
         }
