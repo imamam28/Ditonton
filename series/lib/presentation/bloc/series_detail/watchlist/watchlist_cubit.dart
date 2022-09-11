@@ -26,11 +26,18 @@ class WatchlistCubit extends Cubit<WatchlistState> {
 
     result.fold(
       (failure) async {
-        emit(state.copyWith(isSuccess: false, message: failure.message));
+        emit(state.copyWith(
+          isAddedWatchlist: false,
+          isSuccess: false,
+          message: failure.message,
+        ));
       },
       (successMessage) async {
         emit(state.copyWith(
-            isAddedWatchlist: true, isSuccess: true, message: successMessage));
+          isAddedWatchlist: true,
+          isSuccess: true,
+          message: successMessage,
+        ));
       },
     );
   }
@@ -40,11 +47,18 @@ class WatchlistCubit extends Cubit<WatchlistState> {
 
     result.fold(
       (failure) async {
-        emit(state.copyWith(isSuccess: false, message: failure.message));
+        emit(state.copyWith(
+          isAddedWatchlist: true,
+          isSuccess: false,
+          message: failure.message,
+        ));
       },
       (successMessage) async {
         emit(state.copyWith(
-            isAddedWatchlist: false, isSuccess: true, message: successMessage));
+          isAddedWatchlist: false,
+          isSuccess: true,
+          message: successMessage,
+        ));
       },
     );
   }

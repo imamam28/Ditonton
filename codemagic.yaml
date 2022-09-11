@@ -1,3 +1,11 @@
 workflows:
   default-workflow:
     name: Default Workflow
+    environment:
+      flutter: stable
+    scripts:
+      - flutter packages pub get
+      - flutter test --coverage
+    artifacts:
+      - coverage/lcov.info
+
